@@ -51,4 +51,7 @@ cien_productos <- cien_productos[c(1:100),]
 
 productos <- productos %>% filter(id_producto %in% cien_productos$id_producto) 
 
-write.csv(productos, "productos_final.csv", row.names = F)
+
+productos <- read.csv("database/productos_final.csv")
+write_json(productos, "productos.json", pretty = TRUE)
+
