@@ -11,7 +11,7 @@ function llenarDatalist(datos, idDatalist) {
   datos.forEach(obj => {
     if(obj.nombre) {
       const option = document.createElement('option');
-      option.value = obj.nombre.trim();
+      option.value = String(obj.nombre).trim()
       datalist.appendChild(option);
     }
   });
@@ -19,13 +19,12 @@ function llenarDatalist(datos, idDatalist) {
 
 // arranca todo el proceso, desde leer el json hasta poner el litado en el hrml
 function inicializarBuscador() {
-  cargarJSON('database/nombres_productos.json')
+  cargarJSON('database/productos.json')
     .then(datos => llenarDatalist(datos, 'sugerencias'))
 }
 
 // llamo a la función que arranca todo al principio
-window.addEventListener('DOMContentLoaded', inicializarBuscador);
-
+window.addEventListener('DOMContentLoaded', inicializarBuscador)
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -39,11 +38,11 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
       return;
     }
 
-    fetch("database/nombres_productos.json")  //leo de nuevo el json
+    fetch("database/productos.json")  //leo de nuevo el json
       .then((response) => response.json())
       .then((productosNombres) => {
         const productoSeleccionado = productosNombres.find(   //busco el id del producto que eligió el usuario (el input)
-          (p) => p.nombre === input
+          (p) => String(p.nombre) === String(input)
         );
 
         if (!productoSeleccionado) {
@@ -55,8 +54,7 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
         
         console.log(idProducto)
 
-        // pendiente: seguir desde acá
-        // acortar el json de productos
+        
     
     })
 })
