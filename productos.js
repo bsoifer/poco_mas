@@ -4,14 +4,14 @@ function cargarJSON(ruta) {
     .then(res => res.json())
 }
 
-// creo 100 options, uno por cada producto. uso el atributo "nombre" de cada objeto
+// creo 100 options, uno por cada producto. uso el atributo "productos_descripcion" de cada objeto
 function llenarDatalist(datos, idDatalist) {
   const datalist = document.getElementById(idDatalist);
 
   datos.forEach(obj => {
     if(obj.nombre) {
       const option = document.createElement('option');
-      option.value = String(obj.nombre).trim()
+      option.value = String(obj.productos_descripcion).trim()
       datalist.appendChild(option);
     }
   });
@@ -42,7 +42,7 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
       .then((response) => response.json())
       .then((productosNombres) => {
         const productoSeleccionado = productosNombres.find(   //busco el id del producto que eligió el usuario (el input)
-          (p) => String(p.nombre) === String(input)
+          (p) => String(p.productos_descripcion) === String(input)
         );
 
         if (!productoSeleccionado) {
@@ -52,9 +52,29 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
 
         const idProducto = productoSeleccionado.id_producto   //ID del producto que seleccionó el usuario
         
-        console.log(idProducto)
+        //console.log(idProducto)
 
-        
-    
+        const precioMin = productoSeleccionado.precio_minimo
+        const precioMax = productoSeleccionado.precio_maximo
+        const sucursalMin = productoSeleccionado.sucursal_minima
+        const sucursalMax = productoSeleccionado.sucursal_maxima
+        const marca = productoSeleccionado.productos_marca
+        const cantSucursales = productoSeleccionado.n
+        const dispersion = Math.round(((precioMax/precioMin)-1) * 100, 2)
+
+        const textoBusqueda = document.getElementById("resultadosBusqueda").innerHTML = 
+        `<p><strong>Marca:</strong> ${marca}</p>
+        <p><strong>Cantidad de sucursales (en CABA) que venden el producto: </strong>${cantSucursales}</p>
+        <p><strong>Precio mínimo:</strong> $${precioMin}</p>
+        <p><strong>Precio máximo:</strong> $${precioMax}</p>
+        <p><strong>Sucursal más barata:</strong> ${sucursalMin}</p>
+        <p><strong>Sucursal más cara:</strong> ${sucursalMax}</p>
+        <p>El producto seleccionado tiene un ${dispersion}% de dispersión!`
     })
+})
+
+document.getElementById("btnReestablecer").addEventListener("click", function(){
+  document.getElementById("resultadosBusqueda").innerHTML = ''
+  document.getElementById("buscador-producto").value = ''
+  
 })
