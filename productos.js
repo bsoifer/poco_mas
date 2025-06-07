@@ -9,7 +9,7 @@ function llenarDatalist(datos, idDatalist) {
   const datalist = document.getElementById(idDatalist);
 
   datos.forEach(obj => {
-    if(obj.nombre) {
+    if(obj.productos_descripcion) {
       const option = document.createElement('option');
       option.value = String(obj.productos_descripcion).trim()
       datalist.appendChild(option);
@@ -64,11 +64,8 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
 
         const textoBusqueda = document.getElementById("resultadosBusqueda").innerHTML = 
         `<p><strong>Marca:</strong> ${marca}</p>
-        <p><strong>Cantidad de sucursales (en CABA) que venden el producto: </strong>${cantSucursales}</p>
         <p><strong>Precio mínimo:</strong> $${precioMin}</p>
         <p><strong>Precio máximo:</strong> $${precioMax}</p>
-        <p><strong>Sucursal más barata:</strong> ${sucursalMin}</p>
-        <p><strong>Sucursal más cara:</strong> ${sucursalMax}</p>
         <p>El producto seleccionado tiene un ${dispersion}% de dispersión!`
     })
 })
