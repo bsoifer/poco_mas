@@ -9,7 +9,7 @@
 </head>
 <body>
      <header>
-        <a href="#inicio">
+        <a href="index.html">
             <img src="img/logo.png" alt="Logo de Poco Más" id="logo">
         </a>
         <nav id="menu">
@@ -26,6 +26,20 @@
         <br>
         <br>
         <h1 id = "tituloCarrito">Armá tu carrito y fijate su dispersión</h1>
+
+        <div class="buscador-con-boton">
+            <input type="text" id="buscador-producto" placeholder="Buscá un producto..." list="sugerencias"/>
+            <button id="btn-buscar">Buscar</button>
+            <button id="btnReestablecer">Reestablecer</button>
+            <datalist id="sugerencias"></datalist>
+        </div>
+
+        <div id = "resultadosBusqueda">
+        </div>
+
+        <div id ="catalogo" class = "grid-catalogo">
+            
+        </div>
     </main>
 
     <footer>
@@ -56,5 +70,6 @@
         </div>
     </footer>
 <script src="script.js"></script>
+<script src="carrito.js"></script>
 </body>
 </html>

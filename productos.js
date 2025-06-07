@@ -1,10 +1,10 @@
-// leo el JSON que contiene, entre otras cosas, los nombres de los 100 productos
+// leo el JSON que contiene, entre otras cosas, los nombres de los productos
 function cargarJSON(ruta) {
   return fetch(ruta)
     .then(res => res.json())
 }
 
-// creo 100 options, uno por cada producto. uso el atributo "productos_descripcion" de cada objeto
+// creo options, uno por cada producto. uso el atributo "productos_descripcion" de cada objeto
 function llenarDatalist(datos, idDatalist) {
   const datalist = document.getElementById(idDatalist);
 
@@ -50,19 +50,15 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
           return;
         }
 
-        const idProducto = productoSeleccionado.id_producto   //ID del producto que seleccionó el usuario
-        
+        //const idProducto = productoSeleccionado.id_producto   //ID del producto que seleccionó el usuario
         //console.log(idProducto)
 
         const precioMin = productoSeleccionado.precio_minimo
         const precioMax = productoSeleccionado.precio_maximo
-        const sucursalMin = productoSeleccionado.sucursal_minima
-        const sucursalMax = productoSeleccionado.sucursal_maxima
         const marca = productoSeleccionado.productos_marca
-        const cantSucursales = productoSeleccionado.n
         const dispersion = Math.round(((precioMax/precioMin)-1) * 100, 2)
 
-        const textoBusqueda = document.getElementById("resultadosBusqueda").innerHTML = 
+        document.getElementById("resultadosBusqueda").innerHTML = 
         `<img src="img_productos/${productoSeleccionado.id_producto}.jpg" alt="${productoSeleccionado.productos_descripcion}" id ="foto-producto">
         <p><strong>Marca:</strong> ${marca}</p>
         <p><strong>Precio mínimo:</strong> $${precioMin}</p>
