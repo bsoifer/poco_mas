@@ -1,8 +1,13 @@
+#tituloProductos {
+  margin-left: 20px;
+}
+
 .buscador-con-boton {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
+  margin-left: 20px;
 }
 
 #buscador-producto {
@@ -20,4 +25,16 @@
 #btnReestablecer {
   height: 40px;
   font-size: 16px;
+}
+
+#foto-producto {
+  width: 200px;  
+  border: 2px solid black;
+  border-radius: 4px; 
+  margin-bottom: 15px;
+  display: block;
+}
+
+#resultadosBusqueda{
+  margin-left: 20px;
 }

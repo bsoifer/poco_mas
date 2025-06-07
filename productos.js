@@ -63,7 +63,8 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
         const dispersion = Math.round(((precioMax/precioMin)-1) * 100, 2)
 
         const textoBusqueda = document.getElementById("resultadosBusqueda").innerHTML = 
-        `<p><strong>Marca:</strong> ${marca}</p>
+        `<img src="img_productos/${productoSeleccionado.id_producto}.jpg" alt="${productoSeleccionado.productos_descripcion}" id ="foto-producto">
+        <p><strong>Marca:</strong> ${marca}</p>
         <p><strong>Precio mínimo:</strong> $${precioMin}</p>
         <p><strong>Precio máximo:</strong> $${precioMax}</p>
         <p>El producto seleccionado tiene un ${dispersion}% de dispersión!`
