@@ -6,18 +6,18 @@ function cargarJSON(ruta) {
 
 // creo options, uno por cada producto. uso el atributo "productos_descripcion" de cada objeto
 function llenarDatalist(datos, idDatalist) {
-  const datalist = document.getElementById(idDatalist);
+  const datalist = document.getElementById(idDatalist)
 
-  datos.forEach(obj => {
-    if(obj.productos_descripcion) {
-      const option = document.createElement('option');
-      option.value = String(obj.productos_descripcion).trim()
-      datalist.appendChild(option);
+  for(let i = 0; i < datos.length; i++) {
+    if(datos[i].productos_descripcion) {
+      const option = document.createElement('option')
+      option.value = String(datos[i].productos_descripcion)
+      datalist.appendChild(option)
     }
-  });
+  }
 }
 
-// arranca todo el proceso, desde leer el json hasta poner el litado en el hrml
+// arranca todo el proceso, desde leer el json hasta poner el listado en el hrml
 function inicializarBuscador() {
   cargarJSON('database/productos.json')
     .then(datos => llenarDatalist(datos, 'sugerencias'))
@@ -25,7 +25,6 @@ function inicializarBuscador() {
 
 // llamo a la función que arranca todo al principio
 window.addEventListener('DOMContentLoaded', inicializarBuscador)
-
 
 //////////////////////////////////////////////////////////////////////////////////////
 //Accionar el botón de buscar

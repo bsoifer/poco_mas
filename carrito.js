@@ -22,7 +22,7 @@ if(carritoGuardado === null){
     mostrarCatalogo(carrito)
   })
 }else{
-  const carrito = JSON.parse(carritoGuardado)
+  carrito = JSON.parse(carritoGuardado)
   mostrarCatalogo(carrito)
 }
 
@@ -82,16 +82,16 @@ function cargarJSON(ruta) {
 function llenarDatalist(datos, idDatalist) {
   const datalist = document.getElementById(idDatalist)
 
-  datos.forEach(obj => {
-    if(obj.productos_descripcion) {
+  for(let i = 0; i < datos.length; i++) {
+    if(datos[i].productos_descripcion) {
       const option = document.createElement('option')
-      option.value = String(obj.productos_descripcion).trim()
+      option.value = String(datos[i].productos_descripcion)
       datalist.appendChild(option)
     }
-  })
+  }
 }
 
-// arranca todo el proceso, desde leer el json hasta poner el litado en el hrml
+// arranca todo el proceso, desde leer el json hasta poner el listado en el hrml
 function inicializarBuscador() {
   cargarJSON('database/productos.json')
     .then(datos => llenarDatalist(datos, 'sugerencias'))
@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', inicializarBuscador)
 //////////////////////////////////////////////////////////////////////////////////////
 //Accionar el botón de buscar
 
-document.getElementById("btn-buscar").addEventListener("click", function () {
+document.getElementById("btn-buscar").addEventListener("click", function(){
     const input = document.getElementById("buscador-producto").value.trim()
 
     if (!input) {
@@ -112,35 +112,50 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
       return
     }
 
-    fetch("database/productos.json")  //leo de nuevo el json
-      .then((response) => response.json())
-      .then((productosNombres) => {
-        const productoSeleccionado = productosNombres.find(   //busco el id del producto que eligió el usuario (el input)
-          (p) => String(p.productos_descripcion) === String(input)
-        )
+    const productoSeleccionado = carrito.find(
+      (p) => String(p.productos_descripcion) === String(input)
+    ) //devuelve el objeto cuya descripcion sea igual a la del input
 
-        if (!productoSeleccionado) {
-          alert("Producto no encontrado. Elegí uno de la lista.")
-          return
-        }
 
-        //const idProducto = productoSeleccionado.id_producto   //ID del producto que seleccionó el usuario
-        //console.log(idProducto)
+    if(!productoSeleccionado){
+      alert("Producto no encontrado. Elegí uno de la lista")
+      return
+    }
 
-        const precioMin = productoSeleccionado.precio_minimo
-        const precioMax = productoSeleccionado.precio_maximo
-        const marca = productoSeleccionado.productos_marca
-        
-        document.getElementById("resultadosBusqueda").innerHTML = 
-        `<img src="img_productos/${productoSeleccionado.id_producto}.jpg" alt="${productoSeleccionado.productos_descripcion}" id ="foto-producto">
-        <p><strong>Marca:</strong> ${marca}</p>
-        <p>EAN ${productoSeleccionado.id_producto}<p>
-        <p><strong>Precio mínimo:</strong> $${precioMin}</p>
-        <p><strong>Precio máximo:</strong> $${precioMax}</p>`
+    const i = carrito.findIndex(p => Number(p.id_producto) === Number(productoSeleccionado.id_producto))
 
-        document.getElementById("catalogo").innerHTML = ''
+    document.getElementById("catalogo").innerHTML = '';
+
+    document.getElementById("resultadosBusqueda").innerHTML = 
+    `<img src="img_productos/${productoSeleccionado.id_producto}.jpg" alt="${productoSeleccionado.productos_descripcion}" id="foto-producto">
+    <p><strong>Marca:</strong> ${productoSeleccionado.productos_marca}</p>
+    <p>EAN ${productoSeleccionado.id_producto}</p>
+    <p><strong>Precio mínimo:</strong> $${productoSeleccionado.precio_minimo}</p>
+    <p><strong>Precio máximo:</strong> $${productoSeleccionado.precio_maximo}</p>
+    <div class="contador">
+      <button class="btn-restar">-</button>
+      <span class="cantidad">${productoSeleccionado.cantidad}</span>
+      <button class="btn-sumar">+</button>
+    </div>`
+
+    const resultadosBusqueda = document.getElementById("resultadosBusqueda")
+    const spanCantidad = resultadosBusqueda.querySelector(".cantidad")
+
+    resultadosBusqueda.querySelector(".btn-sumar").addEventListener("click", function(){
+      carrito[i].cantidad++
+      localStorage.setItem("carrito", JSON.stringify(carrito))
+      spanCantidad.innerHTML = carrito[i].cantidad
+    })
+
+    resultadosBusqueda.querySelector(".btn-restar").addEventListener("click", function(){
+      if(carrito[i].cantidad > 0) {
+        carrito[i].cantidad--
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+        spanCantidad.innerHTML = carrito[i].cantidad
+      }
     })
 })
+
 
 document.getElementById("btnReestablecer").addEventListener("click", function(){
   document.getElementById("resultadosBusqueda").innerHTML = ''
