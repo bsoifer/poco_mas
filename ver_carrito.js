@@ -106,6 +106,9 @@ function actualizarTitulo(carrito){
 
     const dispersion = Math.round(((precioMaximo/precioMinimo)-1)*100)
 
+    precioMinimo = Math.round(precioMinimo*100)/100
+    precioMaximo = Math.round(precioMaximo*100)/100
+
     const titulo = document.getElementById("tituloCarrito")
     titulo.innerHTML = ''
     titulo.innerHTML = `<h2>El total de tu carrito varía entre $${precioMinimo} y $${precioMaximo}</h2>
