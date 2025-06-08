@@ -182,7 +182,7 @@ footer {
 
   #listaMenu {
     flex-direction: row;
-    gap: 15px;
+    gap: 10px;
     margin-left: -10px;    
   }
 
@@ -202,16 +202,10 @@ footer {
   }
 
   #logo {
-    width: 80px;
+    width: 60px;
   }
 
   .bienvenida-texto h1 {
     font-size: 1.5rem;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
   }
 }
