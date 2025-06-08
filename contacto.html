@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_contacto.css">
 </head>
 <body>
      <header>
@@ -22,7 +23,25 @@
     </header>
 
     <main>
-        <img src="https://placehold.co/1000" alt="">
+        <br>
+        <br>
+        <div id = "contacto">
+            <form action="https://formsubmit.co/bsoifer@itba.edu.ar" method="POST">
+                <h1>Contacto</h1>
+                <p>¿Tenés alguna duda? Escribinos y te responderemos a la brevedad</p>
+                <br>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="Tu email" required><br><br>
+                
+                <label for="mensaje">Mensaje:</label><br>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribí tu mensaje aquí" rows="5" required></textarea><br><br>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </main>
 
     <footer>
