@@ -61,9 +61,8 @@
 }
 
 #btnVerCarrito{
-  padding: 10px 20px;
+  padding: 8px 16px;
   background-color: #007bff;
   color: white;
   text-decoration: none;
-  font-weight: bold;
 }
