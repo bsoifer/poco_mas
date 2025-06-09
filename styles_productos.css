@@ -38,3 +38,40 @@
 #resultadosBusqueda{
   margin-left: 20px;
 }
+
+#linkFuente {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  #tituloProductos {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .buscador-con-boton {
+    flex-direction: column;
+    align-items: stretch;
+    width: 95%;
+    margin: 0 auto 0 10px;
+  }
+
+  #buscador-producto,
+  #btn-buscar,
+  #btnReestablecer {
+    width: 100%;
+    font-size: 14px;
+    height: 36px;
+    box-sizing: border-box;
+  }
+
+  #foto-producto {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  #resultadosBusqueda {
+    margin: 20px 10px 0 10px;
+  }
+}

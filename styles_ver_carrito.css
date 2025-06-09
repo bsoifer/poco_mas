@@ -28,3 +28,78 @@
   border: 1px solid black;
   margin-bottom: 10px;
 }
+
+#linkFuente {
+  margin-top: 20px;
+}
+
+/* Media Query */
+@media (max-width: 600px) {
+  #tituloCarrito {
+    font-size: 22px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .buscador-con-boton {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+  }
+
+  #buscador-producto,
+  #btn-buscar,
+  #btnReestablecer,
+  #btnVerCarrito {
+    width: 100%;
+    font-size: 14px;
+    height: 36px;
+    box-sizing: border-box;
+  }
+
+  #btnVerCarrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+  }
+
+  #resultadosBusqueda {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+
+  /* Aquí las imágenes igual que antes: ancho 100% pero max 200px */
+  .card-producto img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 15px auto;
+    display: block;
+  }
+
+  .grid-catalogo {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  .card-producto {
+    padding: 10px;
+    max-width: 300px;
+    margin: 0 auto;  
+  }
+
+  #btnVolver {
+  display: block;
+  margin: 0 auto 20px auto; /* margen arriba 0, auto a los lados para centrar, 20px abajo */
+}
+}
+

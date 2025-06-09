@@ -23,3 +23,23 @@
     color: white;
     font-size: 16px;
 }
+
+#linkFuente {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  #contacto {
+    margin-left: 20px;
+    max-width: 600px;
+    margin: 0px auto; 
+    padding: 30px;
+}
+
+  #contacto input,
+  #contacto textarea,
+  #contacto button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

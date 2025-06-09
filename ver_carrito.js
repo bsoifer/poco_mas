@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if(carrito === null){
         titulo.innerHTML = `
         <h2>Tu carrito está vacío</h2>
-        <p>Arma tu carrito para ver su rango y dispersión de precios</p>`
+        <p>Armá tu carrito para ver su rango y dispersión de precios</p>`
     }else{
         if(!hayElementos(carrito)){
             titulo.innerHTML = `
             <h2>Tu carrito está vacío</h2>
-            <p>Arma tu carrito para ver su rango y dispersión de precios</p>`
+            <p>Armá tu carrito para ver su rango y dispersión de precios</p>`
         }else{
             mostrarCarritoConItems(carrito)
             actualizarTitulo(carrito)
@@ -79,7 +79,7 @@ function mostrarCarritoConItems(carrito){
                     }else{
                         const titulo = document.getElementById("tituloCarrito")
                         titulo.innerHTML = `<h2>Tu carrito está vacío</h2>
-                        <p>Arma tu carrito para ver su rango y dispersión de precios</p>`
+                        <p>Armá tu carrito para ver su rango y dispersión de precios</p>`
 
                         mensaje.innerHTML = ''
 

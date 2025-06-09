@@ -30,6 +30,7 @@ if(carritoGuardado === null){
 // mostrar el catálogo con todos los productos
 function mostrarCatalogo(carrito) {
   const catalogo = document.getElementById("catalogo")
+  catalogo.innerHTML = ''
 
   for (let i = 0; i < carrito.length; i++) {
     const producto = document.createElement("div")
