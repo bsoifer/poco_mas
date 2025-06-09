@@ -33,7 +33,6 @@
   margin-top: 20px;
 }
 
-/* Media Query */
 @media (max-width: 600px) {
   #tituloCarrito {
     font-size: 22px;
@@ -75,7 +74,6 @@
     margin-top: 20px;
   }
 
-  /* Aquí las imágenes igual que antes: ancho 100% pero max 200px */
   .card-producto img {
     width: 100%;
     max-width: 200px;
@@ -99,7 +97,7 @@
 
   #btnVolver {
   display: block;
-  margin: 0 auto 20px auto; /* margen arriba 0, auto a los lados para centrar, 20px abajo */
+  margin: 0 auto 20px auto;
 }
 }
 

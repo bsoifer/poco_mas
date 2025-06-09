@@ -170,8 +170,6 @@ footer {
   margin-top: 20px;
 }
 
-/* Media query */
-
 @media (max-width: 600px) {
   header {
     position: static;
