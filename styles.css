@@ -101,6 +101,39 @@ header {
    background-color: #FAF9F6;
 }
 
+.buscador-con-boton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#buscador-producto {
+  width: 800px;
+  height: 40px;
+  font-size: 16px;
+  padding: 8px;
+}
+
+#btn-buscar, #btnReestablecer, #btnVerCarrito {
+  height: 40px;
+  font-size: 16px;
+}
+
+#foto-producto {
+  width: 200px;  
+  border: 2px solid black;
+  border-radius: 4px; 
+  margin-bottom: 15px;
+  display: block;
+}
+
+#resultadosBusqueda {
+  margin-left: 20px;
+}
+
+
 #logo_body {
   width: 150px;
   height: auto;
@@ -197,6 +230,70 @@ footer {
     max-width: 100%;
     height: 200px;
     aspect-ratio: auto;
+  }
+
+  #logo {
+    width: 60px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .faq {
+    flex-direction: column;
+  }
+
+  #listaMenu {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  #logo {
+    width: 60px;
+  }
+
+  #listaMenu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .itemMenu a {
+    font-size: 14px;
+    padding: 5px 0;
+  }
+}
+
+
+@media (max-width: 440px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  #listaMenu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .itemMenu a {
+    font-size: 14px;
+    padding: 4px 0;
   }
 
   #logo {
