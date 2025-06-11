@@ -56,13 +56,15 @@ document.getElementById("btn-buscar").addEventListener("click", function () {
         const precioMax = productoSeleccionado.precio_maximo
         const marca = productoSeleccionado.productos_marca
         const dispersion = Math.round(((precioMax/precioMin)-1) * 100, 2)
+        const sucursal_minima = productoSeleccionado.sucursal_minima
 
         document.getElementById("resultadosBusqueda").innerHTML = 
         `<img src="img_productos/${productoSeleccionado.id_producto}.jpg" alt="${productoSeleccionado.productos_descripcion}" id ="foto-producto">
         <p><strong>Marca:</strong> ${marca}</p>
         <p><strong>Precio mínimo:</strong> $${precioMin}</p>
         <p><strong>Precio máximo:</strong> $${precioMax}</p>
-        <p>El producto seleccionado tiene un ${dispersion}% de dispersión!`
+        <p>El producto seleccionado tiene un ${dispersion}% de dispersión!
+        <p>Te conviene comprar este producto en ${sucursal_minima}</p>`
     })
 })
 
