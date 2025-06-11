@@ -16,7 +16,7 @@ El proyecto busca visibilizar las diferencias de precios entre distintos puntos 
 - **CSS** para el diseño y estilo visual.
 - **JavaScript** para la interacción dinámica (carrito, navegación y búsqueda de productos).
 - **JSON** como formato intermedio para conectar los datos con el frontend.
-- - **R** para la generación y limpieza de la base de datos de productos y precios.
+- **R** para la generación y limpieza de la base de datos de productos y precios.
 
 ## 🚧 Mejoras propuestas para el futuro
 - Incorporar mayor cantidad de productos
