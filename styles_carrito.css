@@ -23,12 +23,22 @@
   margin-bottom: 10px;
 }
 
-#btnVerCarrito{
-  padding: 8px 16px;
+#btnVerCarrito {
   background-color: #007bff;
+  border: 1px solid #0056b3;
   color: white;
-  text-decoration: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  white-space: normal;
+  height: auto;
+  line-height: normal;
+  width: auto;
+  min-width: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 4px;
 }
+
 
 #linkFuente {
   margin-top: 20px;
